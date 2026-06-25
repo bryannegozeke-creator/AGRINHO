@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgroForte & Sustentável</title>
+    <style>
+        /* Estilização Geral (CSS) */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f4f7f4;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2e7d32, #1b5e20);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-style: italic;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        main {
+            max-width: 1100px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        /* Seção de Cards Informativos */
+        .info-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 5px solid #4caf50;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .card h3 {
+            color: #2e7d32;
+            margin-bottom: 0.8rem;
+        }
+
+        /* Seção da Calculadora Interativa */
+        .calc-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 1px solid #e0e0e0;
+        }
+
+        .calc-section h2 {
+            color: #1b5e20;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: #455a64;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+
+        .btn-calc {
+            display: block;
+            width: 100%;
+            background-color: #2e7d32;
+            color: white;
+            border: none;
+            padding: 1rem;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn-calc:hover {
+            background-color: #1b5e20;
+        }
+
+        /* Resultado */
+        .result-box {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background-color: #e8f5e9;
+            border-radius: 6px;
+            border: 1px solid #c8e6c9;
+            display: none;
+        }
+
+        .result-box h4 {
+            color: #2e7d32;
+            margin-bottom: 0.5rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+            background-color: #222;
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Agro Forte, Futuro Sustentável</h1>
+        <p>Equilíbrio entre produtividade agrícola e preservação do meio ambiente</p>
+    </header>
+
+    <main>
+        <h2 style="margin-bottom: 1rem; color: #2e7d32;">Pilares da Agricultura Sustentável</h2>
+        <section class="info-container">
+            <div class="card">
+                <h3>💧 Gestão de Recursos Hídricos</h3>
+                <p>A irrigação gota a gota e o monitoramento da umidade do solo evitam o desperdício de água, garantindo que a planta receba exatamente o necessário.</p>
+            </div>
+            <div class="card">
+                <h3>🌱 Rotação de Culturas</h3>
+                <p>Alternar as espécies plantadas na mesma área ajuda a manter os nutrientes do solo, quebra o ciclo de pragas e reduz a necessidade de fertilizantes químicos.</p>
+            </div>
+            <div class="card">
+                <h3>☀️ Energia Renovável</h3>
+                <p>O uso de painéis solares para alimentar sistemas de irrigação e cercas elétricas reduz a pegada de carbono e gera economia para o produtor rural.</p>
+            </div>
+        </section>
+
+        <section class="calc-section">
+            <h2>Simulador de Consumo de Água na Irrigação</h2>
+            <p style="text-align: center; margin-bottom: 1.5rem; color: #666;">
+                Descubra a estimativa diária de água necessária para a sua plantação com base no tipo de cultivo.
+            </p>
+
+            <div class="form-group">
+                <label for="cultura">Tipo de Cultivo:</label>
+                <select id="cultura">
+                    <option value="4">Hortaliças (Consumo Médio: 4L por m²/dia)</option>
+                    <option value="6">Milho / Grãos (Consumo Médio: 6L por m²/dia)</option>
+                    <option value="5">Frutíferas (Consumo Médio: 5L por m²/dia)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="area">Área Plantada (em metros quadrados - m²):</label>
+                <input type="number" id="area" placeholder="Ex: 500" min="1">
+            </div>
+
+            <button class="btn-calc" onclick="calcularAgua()">Calcular Consumo</button>
+
+            <div class="result-box" id="resultadoBox">
+                <h4>📊 Relatório de Consumo Estimado:</h4>
+                <p id="resultadoTexto"></p>
+                <p style="font-size: 0.85rem; color: #555; margin-top: 0.5rem;">
+                    *Dica Sustentável: Utilizar sistemas de irrigação por gotejamento pode reduzir esse consumo em até 30%!
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 Tecnologia Verde - Soluções para o Agronegócio Consciente.</p>
+    </footer>
+
+    <script>
+        function calcularAgua() {
+            // Pega os valores inseridos pelo usuário
+            const consumoPorM2 = parseFloat(document.getElementById('cultura').value);
+            const area = parseFloat(document.getElementById('area').value);
+            const resultadoBox = document.getElementById('resultadoBox');
+            const resultadoTexto = document.getElementById('resultadoTexto');
+
+            // Validação simples para garantir que a área foi preenchida corretamente
+            if (!area || area <= 0) {
+                alert("Por favor, insira um valor válido para a área plantada.");
+                return;
+            }
+
+            // Conta matemática básica do simulador
+            const consumoTotalDiario = area * consumoPorM2;
+            const consumoMensal = consumoTotalDiario * 30;
+
+            // Insere o texto com as respostas e mostra a caixinha na tela
+            resultadoTexto.innerHTML = `
+                Sua plantação consome aproximadamente <strong>${consumoTotalDiario.toLocaleString('pt-BR')} litros</strong> de água por dia.<br>
+                Em um mês (30 dias), o consumo estimado será de <strong>${consumoMensal.toLocaleString('pt-BR')} litros</strong>.
+            `;
+            
+            // Faz o bloco de resultado aparecer
+            resultadoBox.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
